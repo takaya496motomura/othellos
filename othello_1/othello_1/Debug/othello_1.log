@@ -1,0 +1,4 @@
+﻿  chooseturn.cpp
+C:\Users\N107\source\repos\othello_1\othello_1\files\chooseturn.cpp(15): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' の宣言を確認してください
+  othello_1.vcxproj -> C:\Users\N107\source\repos\othello_1\Debug\othello_1.exe
