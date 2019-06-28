@@ -23,9 +23,9 @@ int cpu(char f[LEN][LEN], char player) {
 
 	availableCellList(f, bl, player); // 取得
 
-	x = 2;//CPUは弱
+	x = 1;//CPUは弱
 
-	if (x == 1) {
+	if (x == 0) {
 		for (i = 0; i < bc; i++) {
 			if (bl[i].count > better) {
 				better = bl[i].count; // とりあえず最後の最善手(周囲8マスに置ける最大数)
@@ -33,7 +33,7 @@ int cpu(char f[LEN][LEN], char player) {
 			}
 		}
 	}
-	else if (x == 2) {
+	else if (x == 1) {
 		for (i = 0; i < bc; i++) {
 			if ( bl[i].count > 0 ) { // available=0を除外する必要がある（空白のマスでも代入されてしまうため）
 				better = bl[i].count; // とりあえず最後に置けるマス
