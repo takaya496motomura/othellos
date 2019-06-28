@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
 	// CPU対戦かローカル対戦を選択
 	y = choosemode();
 
-	// 対戦方法ごとで先攻後攻を選択
+	// 対戦方法ごとで先攻後攻の選び方を選択
 	if (y == 1) {
 		x = choosepiece();
 	}
@@ -46,19 +46,20 @@ int main(int argc, char** argv) {
 			cls();
 			available = 0;
 
+			/* ローカル対戦 */
 			if (y == 1) {
 
-				//ローカル対戦
 				if (player == BLACK) {
 
 					cls();
-					/* 人間1の手番 */
+					/* 先攻の手番 */
 					printf("Your('%c') turn:\n", player);
 					printField(field);
 
 					available |= human(field, player);
 
 					cls();
+					//avaialable==0ならelseへ
 					if (available) {
 						printf("Your('%c') turn:\n", player);
 						printField(field);
@@ -73,17 +74,17 @@ int main(int argc, char** argv) {
 					wait(2);
 
 				};
-
 				if (player == WHITE) {
 
 					cls();
-					/* 人間2の手番 */
+					/* 後攻の手番 */
 					printf("Your('%c') turn:\n", player);
 					printField(field);
 
 					available |= human(field, player);
 
 					cls();
+					//avaialable==0ならelseへ
 					if (available) {
 						printf("Your('%c') turn:\n", player);
 						printField(field);
@@ -95,15 +96,16 @@ int main(int argc, char** argv) {
 					printf("\n");
 
 					player = BLACK;
-
 					wait(2);
 
 				};
 
 			}
+			/* CPU対戦 */
 			else {
+
+				/* CPUが先攻 */
 				if (x == 1) {
-					//CPU対戦（CPUが先攻）
 					if (player == BLACK) {
 	
 						cls();
@@ -114,25 +116,24 @@ int main(int argc, char** argv) {
 						available |= cpu(field, player);
 	
 						cls();
-						//avaialable=0ならelseへ
+						//avaialable==0ならelseへ
 						if (available) {
 							printf("Your('%c') turn:\n", player);
 							printField(field);
 						}
-						else printf("\tYou: Pass!\n");
+						else printf("\tCPU: Pass!\n");
 
 						viewStatus(field);
 
 						printf("\n");
 
 						player = WHITE;
-
 						wait(2);
 					};
 					if (player == WHITE) {
 	
 						cls();
-						/* 人間の手番（後攻） */
+						/* 人間の手番 */
 						printf("Your('%c') turn:\n", player);
 						printField(field);
 	
@@ -151,23 +152,23 @@ int main(int argc, char** argv) {
 						printf("\n");
 
 						player = BLACK;
-
 						wait(2);
-
 					};
 				}
+				/* CPUが後攻 */
 				else {
-					//CPU対戦（CPUが後攻）
+					
 					if (player == BLACK) {
 
 						cls();
-						/* 人間の手番（先攻） */
+						/* 人間の手番 */
 						printf("Your('%c') turn:\n", player);
 						printField(field);
 	
 						available |= human(field, player);
 
 						cls();
+						//avaialable==0ならelseへ
 						if (available) {
 							printf("Your('%c') turn:\n", player);
 							printField(field);
@@ -180,9 +181,7 @@ int main(int argc, char** argv) {
 
 						player = WHITE;
 						wait(2);
-
 					};
-
 					if (player == WHITE) {
 
 						cls();
@@ -198,14 +197,13 @@ int main(int argc, char** argv) {
 							printf("Your('%c') turn:\n", player);
 							printField(field);
 						}
-						else printf("\tYou: Pass!\n");
+						else printf("\tCPU: Pass!\n");
 
 						viewStatus(field);
 
 						printf("\n");
 
 						player = BLACK;
-
 						wait(2);
 					};
 				};

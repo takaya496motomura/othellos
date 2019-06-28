@@ -5,7 +5,7 @@
 
 
 
-/* 先攻、後攻の選択画面表示 */
+/* ローカル対戦での先攻、後攻の選択画面表示 */
 int choosepiece() {
 	int x;
 
@@ -20,16 +20,14 @@ int choosepiece() {
 
 	if (x == 0) {
 
-		//	player = WHITE;
 		printf("Your turn is first.\n\n");
 		printf("Player1 is BLACK('X') piece.\n\n");
 		printf("Player2 is WHITE('O') piece.\n\n");
 		wait(4);
 
 	}
-	else if (x == 1) {
+	else{
 
-		//	player = BLACK;
 		printf("Your turn is second.\n\n");
 		printf("Player1 is WHITE('O') piece.\n\n");
 		printf("Player2 is BLACK('X') piece.\n\n");
@@ -62,7 +60,7 @@ int choosemode() {
 		wait(4);
 
 	}
-	else if (x == 1) {
+	else{
 
 		printf("Playing Interpersonal battle mode.\n\n");
 		wait(4);
@@ -74,7 +72,7 @@ int choosemode() {
 	return x;
 }
 
-/* 先攻、後攻の選択画面表示CPU版 */
+/* CPU対戦での先攻、後攻の選択画面表示 */
 int chooseturn() {
 	int x;
 
@@ -89,14 +87,12 @@ int chooseturn() {
 
 	if (x == 0) {
 
-		//	player = WHITE;
 		printf("Your turn is first.\n\n");
 		wait(4);
 
 	}
-	else if (x == 1) {
+	else{
 
-		//	player = BLACK;
 		printf("Your turn is second.\n\n");
 		wait(4);
 
